@@ -4,7 +4,7 @@ class StandardScaler2:
 
     def fit(self, X):
         self.mean_ = np.mean(X, axis=0)
-        self.std_ = np.std(X - self.mean_, axis=0)
+        self.std_ = np.std(X, axis=0)
         self.params_ = {'mean': self.mean_ , 'std': self.std_}
         return self
     
