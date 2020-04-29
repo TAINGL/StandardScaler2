@@ -24,9 +24,9 @@ class StandardScaler2:
     def transform(self, X):
         if (self.params_):
             if (type(X) == np.ndarray):
-                return X - self.mean_[i]/self.std_[i]
+                return (X - self.mean_[i])/self.std_[i]
             else:
-                data = [X[X.columns[i]][j] - self.mean_[i]/self.std_[i] for i in range(len(X.columns)) for j in range(len(X))]
+                data = [(X[X.columns[i]][j] - self.mean_[i])/self.std_[i] for i in range(len(X.columns)) for j in range(len(X))]
                 n = len(X.columns)
                 data_size = [data[i * n:(i + 1) * n] for i in range((len(data) + n - 1) // n )]  
                 df = pd.DataFrame(data_size, index = range(len(X)), columns = X.columns)
